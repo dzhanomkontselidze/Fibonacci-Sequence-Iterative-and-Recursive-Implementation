@@ -1,1 +1,26 @@
-code in progress,not enough iq:C
+console.log("----------------------------------------")
+console.log("Recursion Fibonacci")
+
+function fibonacciRecursive(quantity, sequence = [0, 1]) {
+    if (sequence.length >= quantity) {
+        return sequence.slice(0, quantity);
+    }
+    let nextNum = sequence[sequence.length - 1] + sequence[sequence.length - 2];
+    let newSequence = [...sequence, nextNum];
+    return fibonacciRecursive(quantity, newSequence)
+}
+
+function getFibonacci(n) {
+    if (n <= 0) return [];
+    if (n === 1) return [0];
+    return fibonacciRecursive(n);
+}
+
+const a = getFibonacci(3);
+console.log("fibonacciRecursion 3:", a); // [0, 1 ,1]
+
+const b = getFibonacci(5);
+console.log("fibonacciRecursion 5:", b); // [0, 1, 1, 2, 3]
+
+const c = getFibonacci(7)
+console.log("fibonacciRecursion 7:", c); // [0, 1, 1, 2, 3, 5, 8]
